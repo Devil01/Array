@@ -1,0 +1,72 @@
+#include<bits/stdc++.h>
+#include<stdlib.h>
+#include<cstdio>
+#include<utility>
+#include<vector>
+#include<iostream>
+#include<string.h>
+#include<map>
+#include<algorithm>
+#include<sstream>
+using namespace std;
+#define pb push_back
+#define mp make_pair
+#define clr(x) x.clear()
+#define For(i,a,b) for(i=a;i<b;i++)
+#define loop(i,b) for(i=0;i<b;i++)
+#define Loop(i,b) for(i=1;i<=b;i++)
+#ifndef ONLINE_JUDGE
+#define gc getchar
+#else
+#define gc getchar_unlocked
+#endif
+const int MOD=1e9+7;
+typedef pair<int,int> PII;
+typedef vector<PII> VPII;
+typedef vector<int> VI;
+typedef vector<VI>VII;   
+typedef long long LL;
+#define long long LL;
+#include<math.h>
+#define MAXN 100000
+//NAVIN
+//Lets do something new...
+// :) :) 
+/*LL read_int()
+{
+    char c = gc();
+    while(c<'0' || c>'9') c = gc();
+    
+    LL  ret = 0;
+    while(c>='0' && c<='9')
+    {
+        ret = 10 * ret + c - 48;
+        c = gc();
+    }
+    return ret;
+} */
+int FirstReaptingElement(VI V)
+{
+    map<int,int>M;
+    int Min=-1;
+    for(VI::reverse_iterator it=V.rbegin();it!=V.rend();it++){
+       if(M[*it]!=0)
+         Min=*it;
+       else
+           M[*it]++;  
+    }
+    return Min;
+}
+int main()
+{
+    int n,a;
+    VI V;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        V.pb(a);
+    }
+  cout<<FirstReaptingElement(V)<<endl;
+  return 0;
+}
